@@ -141,12 +141,11 @@
     /* ========== FRAME SLIDE ========== */
     .slide-frame {
       background: #EFE4CE;
-      padding: 0.4in 0.5in;
+      padding: 0.3in 0.5in;
       display: grid;
-      grid-template-columns: 38% 58%;
+      grid-template-columns: 30% 1fr;
       grid-template-rows: auto 1fr;
-      gap: 0 0.35in;
-      align-content: center;
+      gap: 0 0.4in;
     }
 
     .frame-header {
@@ -155,8 +154,8 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 3px solid #3D2B1F;
-      padding-bottom: 5px;
-      margin-bottom: 0.15in;
+      padding-bottom: 4px;
+      margin-bottom: 0.1in;
     }
     .frame-header h3 {
       font-weight: 900;
@@ -186,26 +185,28 @@
 
     .frame-screenshot {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
+      grid-row: 2;
     }
     .frame-screenshot img {
       width: 100%;
-      max-height: 6.8in;
+      height: 100%;
+      max-height: 6.5in;
       object-fit: contain;
       border: none;
       border-radius: 16px;
       background: transparent;
-      overflow: hidden;
     }
 
     .frame-annotations {
-      font-size: 8.5pt;
-      line-height: 1.4;
+      font-size: 8pt;
+      line-height: 1.35;
       overflow: hidden;
+      grid-row: 2;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     /* Part Number */
@@ -1693,14 +1694,20 @@ next</div>
       display: none;
       width: 100vw;
       height: 100vh;
-      overflow-y: auto;
+      overflow: hidden;
       page-break-before: auto !important;
     }
     .slide.active { display: block; }
     .slide-frame {
       width: 100vw !important;
       height: 100vh !important;
-      padding: 3vh 3vw !important;
+      padding: 2vh 3vw !important;
+      overflow: hidden;
+    }
+    .frame-annotations {
+      overflow-y: auto !important;
+      max-height: calc(100vh - 80px) !important;
+      font-size: 9pt !important;
     }
     .slide-cover, .slide-toc {
       width: 100vw !important;
