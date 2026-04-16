@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Care for the Culture - PRC Submission v2</title>
+  <style>
+    @page {
+      size: 11in 8.5in;
+      margin: 0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 9pt;
+      line-height: 1.35;
+      color: #3D2B1F;
+      background: #EFE4CE;
+    }
+
+    /* ========== SLIDE BASE ========== */
+    .slide {
+      width: 11in;
+      height: 8.5in;
+      padding: 0.5in;
+      page-break-before: always;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide:first-child {
+      page-break-before: auto;
+    }
+
+    /* ========== COVER SLIDE ========== */
+    .slide-cover {
+      background: #3D2B1F;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 1in 1.2in;
+    }
+    .slide-cover h1 {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-weight: 900;
+      font-stretch: condensed;
+      font-size: 54pt;
+      line-height: 1.0;
+      color: #C5E534;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4in;
+    }
+    .slide-cover .subtitle {
+      font-size: 16pt;
+      font-weight: 400;
+      color: #EFE4CE;
+      margin-bottom: 0.15in;
+    }
+    .slide-cover .meta-line {
+      font-size: 11pt;
+      color: #BFB49A;
+      margin-bottom: 0.06in;
+    }
+    .slide-cover .part-number-block {
+      margin-top: 0.5in;
+      font-size: 10pt;
+      color: #EFE4CE;
+    }
+
+    /* ========== SECTION DIVIDER ========== */
+    .slide-divider {
+      background: #B33A2B;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 1in 1.2in;
+    }
+    .slide-divider h2 {
+      font-weight: 900;
+      font-stretch: condensed;
+      font-size: 36pt;
+      color: #EFE4CE;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.3in;
+    }
+    .slide-divider p {
+      font-size: 14pt;
+      color: #EFE4CE;
+      opacity: 0.85;
+      max-width: 7in;
+      line-height: 1.5;
+    }
+
+    /* ========== TOC SLIDE ========== */
+    .slide-toc {
+      background: #EFE4CE;
+      padding: 0.5in 0.7in;
+    }
+    .slide-toc h2 {
+      font-weight: 900;
+      font-stretch: condensed;
+      font-size: 28pt;
+      color: #3D2B1F;
+      text-transform: uppercase;
+      margin-bottom: 0.25in;
+      border-bottom: 3px solid #B33A2B;
+      padding-bottom: 0.1in;
+    }
+    .toc-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 0.5in;
+    }
+    .toc-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 3px 0;
+      border-bottom: 1px solid rgba(61,43,31,0.15);
+      font-size: 8.5pt;
+    }
+    .toc-entry .toc-num {
+      font-weight: 700;
+      color: #B33A2B;
+      min-width: 24px;
+      display: inline-block;
+    }
+    .toc-entry .toc-title {
+      flex: 1;
+    }
+    .toc-entry .toc-page {
+      color: #8B7355;
+      font-size: 8pt;
+      margin-left: 8px;
+    }
+
+    /* ========== FRAME SLIDE ========== */
+    .slide-frame {
+      background: #EFE4CE;
+      padding: 0.4in 0.5in;
+      display: grid;
+      grid-template-columns: 38% 58%;
+      grid-template-rows: auto 1fr;
+      gap: 0 0.35in;
+    }
+
+    .frame-header {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid #3D2B1F;
+      padding-bottom: 5px;
+      margin-bottom: 0.15in;
+    }
+    .frame-header h3 {
+      font-weight: 900;
+      font-stretch: condensed;
+      font-size: 18pt;
+      color: #3D2B1F;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+    .frame-header .frame-id {
+      font-size: 8pt;
+      color: #8B7355;
+      font-weight: 400;
+    }
+    .frame-header .variant-badge {
+      display: inline-block;
+      font-size: 7pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-left: 10px;
+    }
+    .badge-connected { background: #C5E534; color: #3D2B1F; }
+    .badge-new { background: #B33A2B; color: #EFE4CE; }
+
+    .frame-screenshot {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .frame-screenshot img {
+      width: 100%;
+      max-height: 6.8in;
+      object-fit: contain;
+      border: none;
+      border-radius: 16px;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    .frame-annotations {
+      font-size: 8.5pt;
+      line-height: 1.4;
+      overflow: hidden;
+    }
+
+    /* Part Number */
+    .part-number-row {
+      margin-bottom: 0.12in;
+    }
+    .part-number-label {
+      font-weight: 700;
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #8B7355;
+    }
+    .part-number-field {
+      background: #FFFFAA;
+      border-bottom: 1.5px solid #3D2B1F;
+      display: inline-block;
+      min-width: 1.8in;
+      padding: 2px 8px;
+      font-family: monospace;
+      font-size: 8pt;
+      margin-left: 6px;
+    }
+
+    /* Annotation Sections */
+    .ann-section {
+      margin-bottom: 0.1in;
+    }
+    .ann-section h4 {
+      font-size: 7.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #B33A2B;
+      margin-bottom: 2px;
+      padding-bottom: 1px;
+      border-bottom: 1px solid rgba(179,58,43,0.25);
+    }
+    .ann-section h4.green {
+      color: #5A7A10;
+      border-bottom-color: rgba(90,122,16,0.3);
+    }
+    .ann-section p {
+      margin-bottom: 2px;
+    }
+    .ann-section ul {
+      padding-left: 1em;
+      margin-bottom: 2px;
+    }
+    .ann-section li {
+      margin-bottom: 1px;
+    }
+    .ann-label {
+      font-weight: 700;
+      color: #3D2B1F;
+    }
+
+    /* Callout / card boxes */
+    .callout-box {
+      background: #FFFFFF;
+      border: 1px solid rgba(61,43,31,0.15);
+      border-radius: 6px;
+      padding: 6px 8px;
+      margin-bottom: 0.08in;
+      font-size: 8pt;
+    }
+
+    .copy-verbatim {
+      background: #FFFFFF;
+      border-left: 3px solid #C5E534;
+      border-radius: 0 6px 6px 0;
+      padding: 5px 8px;
+      font-size: 7.5pt;
+      line-height: 1.35;
+      white-space: pre-wrap;
+      max-height: 1.8in;
+      overflow-y: auto;
+      color: #3D2B1F;
+    }
+
+    /* Data method callout */
+    .data-callout {
+      background: #FFFFFF;
+      border: 1px solid rgba(61,43,31,0.12);
+      border-radius: 6px;
+      padding: 5px 8px;
+      font-size: 7.5pt;
+      margin-bottom: 0.06in;
+    }
+    .data-callout .dc-label {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 6.5pt;
+      letter-spacing: 0.05em;
+      color: #B33A2B;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    /* Print overrides */
+    @media print {
+      body { background: none; }
+      .slide { box-shadow: none; }
+    }
+
+    /* Screen preview: center slides */
+    @media screen {
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        background: #666;
+      }
+      .slide {
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- SLIDE 1: COVER                                                -->
+<!-- ============================================================ -->
+<div class="slide slide-cover">
+  <h1>Care for<br>the Culture</h1>
+  <div class="subtitle">PRC Submission, April 2026</div>
+  <div class="meta-line">Kiosk Experience / Freddy Events, NYC + LA</div>
+  <div class="meta-line">Prepared by Majority</div>
+  <div class="meta-line">Production by Vega Studios</div>
+  <div class="meta-line">Version 2</div>
+  <div class="part-number-block">
+    Part Number: <span class="part-number-field">CFTC-2026-001</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 2: TABLE OF CONTENTS                                    -->
+<!-- ============================================================ -->
+<div class="slide slide-toc">
+  <h2>Table of Contents</h2>
+  <div class="toc-columns">
+    <div>
+      <div class="toc-entry"><span class="toc-num">1.</span><span class="toc-title">Home</span><span class="toc-page">Slide 3</span></div>
+      <div class="toc-entry"><span class="toc-num">2.</span><span class="toc-title">Onboarding</span><span class="toc-page">Slide 4</span></div>
+      <div class="toc-entry"><span class="toc-num">3.</span><span class="toc-title">Photo Capture</span><span class="toc-page">Slide 5</span></div>
+      <div class="toc-entry"><span class="toc-num">4.</span><span class="toc-title">Photo Review</span><span class="toc-page">Slide 6</span></div>
+      <div class="toc-entry"><span class="toc-num">5.</span><span class="toc-title">Zip Code Entry</span><span class="toc-page">Slide 7</span></div>
+      <div class="toc-entry"><span class="toc-num">6.</span><span class="toc-title">PrEP Question</span><span class="toc-page">Slide 8</span></div>
+      <div class="toc-entry"><span class="toc-num">7.</span><span class="toc-title">Data Intro (Color Key)</span><span class="toc-page">Slide 9</span></div>
+      <div class="toc-entry"><span class="toc-num">8.</span><span class="toc-title">National Timeline (connected)</span><span class="toc-page">Slide 10</span></div>
+      <div class="toc-entry"><span class="toc-num">9.</span><span class="toc-title">National Timeline (new/skipped)</span><span class="toc-page">Slide 11</span></div>
+      <div class="toc-entry"><span class="toc-num">10.</span><span class="toc-title">Borough: Brooklyn (connected)</span><span class="toc-page">Slide 12</span></div>
+      <div class="toc-entry"><span class="toc-num">11.</span><span class="toc-title">Borough: The Bronx (connected)</span><span class="toc-page">Slide 13</span></div>
+      <div class="toc-entry"><span class="toc-num">12.</span><span class="toc-title">Borough: Manhattan (connected)</span><span class="toc-page">Slide 14</span></div>
+      <div class="toc-entry"><span class="toc-num">13.</span><span class="toc-title">Borough: Queens (connected)</span><span class="toc-page">Slide 15</span></div>
+    </div>
+    <div>
+      <div class="toc-entry"><span class="toc-num">14.</span><span class="toc-title">Borough: Brooklyn (new/skipped)</span><span class="toc-page">Slide 16</span></div>
+      <div class="toc-entry"><span class="toc-num">15.</span><span class="toc-title">Borough: The Bronx (new/skipped)</span><span class="toc-page">Slide 17</span></div>
+      <div class="toc-entry"><span class="toc-num">16.</span><span class="toc-title">Impact Intro</span><span class="toc-page">Slide 18</span></div>
+      <div class="toc-entry"><span class="toc-num">17.</span><span class="toc-title">Identity Card 1: County Overall</span><span class="toc-page">Slide 19</span></div>
+      <div class="toc-entry"><span class="toc-num">18.</span><span class="toc-title">Identity Card 2: Race</span><span class="toc-page">Slide 20</span></div>
+      <div class="toc-entry"><span class="toc-num">19.</span><span class="toc-title">Identity Card 3: Age</span><span class="toc-page">Slide 21</span></div>
+      <div class="toc-entry"><span class="toc-num">20.</span><span class="toc-title">Identity Card 4: Gender</span><span class="toc-page">Slide 22</span></div>
+      <div class="toc-entry"><span class="toc-num">21.</span><span class="toc-title">Identity Card 5: Spread Awareness</span><span class="toc-page">Slide 23</span></div>
+      <div class="toc-entry"><span class="toc-num">22.</span><span class="toc-title">Name Entry</span><span class="toc-page">Slide 24</span></div>
+      <div class="toc-entry"><span class="toc-num">23.</span><span class="toc-title">Feed Opt-In</span><span class="toc-page">Slide 25</span></div>
+      <div class="toc-entry"><span class="toc-num">24.</span><span class="toc-title">Phone Number</span><span class="toc-page">Slide 26</span></div>
+      <div class="toc-entry"><span class="toc-num">25.</span><span class="toc-title">Done / QR</span><span class="toc-page">Slide 27</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 3: FRAME 1 - HOME                                       -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>1. Home</h3>
+    <span class="frame-id">frame-1</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-1.png" alt="Home screen">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-002</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> The home screen serves as the attract loop for the kiosk experience. It displays a scrolling feed of existing participant cards and a California map visualization with county-level HIV/PrEP data. The screen runs continuously between user sessions.</p>
+      <p><span class="ann-label">User Action:</span> Taps "tap to start" to begin. No data is collected on this frame.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">[feed tab: scrolling card carousel of existing participants]
+[map tab: california county dot visualization]
+
+key (map tab):
+on prep
+living with hiv
+proportional representation · not geographic
+
+[county data cards with swipeable panels:]
+los angeles: 27.2 prep per diagnosis. 1,412 of every 100,000 living with hiv. 489 of every 100,000 on prep.
+san diego: 29.4 prep per diagnosis. 876 of every 100,000 living with hiv. 412 of every 100,000 on prep.
+san francisco: 134.1 prep per diagnosis. 2,890 of every 100,000 living with hiv. 2,145 of every 100,000 on prep.
+
+aidsvu 2023
+
+tap to start
+
+everything you share tonight is deleted within 24 hours.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 4: FRAME 2 - ONBOARDING                                -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>2. Onboarding</h3>
+    <span class="frame-id">frame-2</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-2.png" alt="Onboarding screen">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-003</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Introduces the kiosk experience and sets expectations for the interactive journey ahead. Presents Terms of Use and Privacy Policy links before the user proceeds, ensuring informed consent is established at the outset.</p>
+      <p><span class="ann-label">User Action:</span> Reads the introductory copy and taps "let's go" to continue, or "just browse the feed" to skip onboarding. Terms of Use and Privacy Policy links are accessible on this screen.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>Legal &amp; Compliance Language</h4>
+      <p><span class="ann-label">Why this language is here:</span> The Terms of Use and Privacy Policy links are surfaced before any data collection begins. This ensures that users have an opportunity to review applicable terms before opting into the experience.</p>
+      <p><span class="ann-label">Concerns this addresses:</span></p>
+      <ul>
+        <li>Informed consent prior to data collection</li>
+        <li>Accessibility of legal terms before engagement</li>
+      </ul>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">the feed, tonight only.
+
+join the social app for the room.
+
+snap a photo, drop your name and socials if you'd like the room to connect with you outside of the platform, and you're on it.
+
+to onboard, we'll also ask for your zip and prep status so we can show you how hiv prevention shows up in your neighborhood.
+
+if you don't want to share or join the feed, you don't have to.
+
+either way, you'll walk away with a printed card to take home.
+
+no account, no download, no ads. gone by morning.
+
+let's go
+
+just browse the feed
+
+terms of use · privacy policy</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 5: FRAME 3 - PHOTO CAPTURE                              -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>3. Photo Capture</h3>
+    <span class="frame-id">frame-3</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-3.png" alt="Photo Capture screen">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-004</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Captures a photo of the user via the kiosk camera. The photo is used to generate a personalized identity card later in the experience. The photo is processed locally and is not transmitted to any external server.</p>
+      <p><span class="ann-label">User Action:</span> Positions themselves in front of the kiosk camera and taps the shutter button. The live camera feed is displayed so the user can frame their photo. If in group mode, a counter shows "X of Y" for the current member.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">your turn
+
+[camera viewfinder, portrait 3:4 aspect ratio]
+
+[shutter button]
+
+[group mode only: "{currentIndex + 1} of {totalMembers}"]</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 6: FRAME 4 - PHOTO REVIEW                               -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>4. Photo Review</h3>
+    <span class="frame-id">frame-4</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-4.png" alt="Photo Review screen">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-005</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Allows the user to review their captured photo and either confirm or retake it. This gives the user agency over their image before it is incorporated into their identity card.</p>
+      <p><span class="ann-label">User Action:</span> Reviews the captured photo. Taps "looks good" to confirm, or "retake" to return to the camera screen.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">[captured photo displayed in rounded card, portrait 3:4 aspect ratio]
+
+looks good
+retake</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 7: FRAME 5 - ZIP CODE ENTRY                             -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>5. Zip Code Entry</h3>
+    <span class="frame-id">frame-5</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-5.png" alt="Zip Code Entry screen">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-006</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Collects the user's zip code to determine which county-level HIV and PrEP data to display in subsequent data frames. The zip code is mapped to a county using a static lookup table (no geolocation services). The zip code is not stored after the session ends.</p>
+      <p><span class="ann-label">User Action:</span> Enters their 5-digit zip code via the on-screen numpad. Auto-advances after 5 digits are entered. Can skip.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>Legal &amp; Compliance Language</h4>
+      <p><span class="ann-label">Exact copy on screen:</span> "enter your zip code"</p>
+      <p><span class="ann-label">Why this language is here:</span> Zip code is the minimum geographic identifier needed to retrieve county-level public health data from AIDSVu. The input is mapped to a county via a static ZIP-to-county lookup and is not stored, transmitted, or combined with other identifiers. No geolocation services are used.</p>
+      <p><span class="ann-label">Concerns this addresses:</span></p>
+      <ul>
+        <li>Minimum necessary data collection</li>
+        <li>No persistent storage of geographic identifier</li>
+        <li>No geolocation or GPS used</li>
+        <li>Data used only for session-scoped content personalization</li>
+      </ul>
+      <p><span class="ann-label">Legal basis:</span> General data minimization principles. HIPAA not triggered (Gilead not a covered entity for this event per Jared's 4/14 assessment).</p>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">[user's photo displayed above]
+
+enter your zip code
+
+[5 digit placeholders: _ _ _ _ _]
+
+[numeric keypad]
+
+skip</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 8: FRAME 6 - PREP QUESTION                              -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>6. PrEP Question</h3>
+    <span class="frame-id">frame-6</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-6.png" alt="PrEP Question screen">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-007</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Asks the user about their relationship to PrEP using de-identified language to shape the narrative experience on subsequent frames. The question uses a two-pathway structure that does not require the user to disclose personal health status.</p>
+      <p><span class="ann-label">User Action:</span> Selects one of two pathways or skips the question entirely. Skip preserves user autonomy without penalty.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>Legal &amp; Compliance Language</h4>
+      <p><span class="ann-label">Why this language is here:</span> Two-pathway question structure collapses an earlier four-option design to de-identify users as patients. Phrasing includes "know someone who is" so selecting the option does not imply the user personally is on PrEP. Skip option preserves user autonomy without penalty.</p>
+      <p><span class="ann-label">Stakeholder guidance that shaped this:</span></p>
+      <ul>
+        <li>Angelique Bell (Gilead Compliance, 4/14 call): Flagged that the original four-option PrEP question with "I'm on it" created patient self-identification risk under HIV confidentiality statutes and recommended collapsing to ambiguous phrasing that does not identify the user as a patient.</li>
+        <li>Nikki Crump (Majority, 4/14 recap email): Directed simplification to two pathways with flexibility on final wording.</li>
+      </ul>
+      <p><span class="ann-label">Concerns this addresses:</span></p>
+      <ul>
+        <li>State HIV confidentiality statutes (jurisdiction-dependent)</li>
+        <li>Patient status self-identification risk</li>
+        <li>User autonomy via skip option</li>
+      </ul>
+      <p><span class="ann-label">Legal basis:</span> State HIV confidentiality statutes (jurisdiction-dependent). HIPAA not triggered per Jared's 4/14 assessment (Gilead not a covered entity for this event). TCPA not applicable to this screen.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">this shapes your data card and your morning text
+
+does prep show up in your world?
+
+i'm on prep or know someone who is
+not on prep or new to prep
+
+skip</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 9: FRAME 7 - DATA INTRO (COLOR KEY)                     -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>7. Data Intro (Color Key)</h3>
+    <span class="frame-id">frame-7</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-7.png" alt="Data Intro screen">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-008</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Introduces the data visualization section and explains the color coding used throughout the subsequent data frames. Prepares the user for the visual language they will encounter, establishing that dots represent relative rates rather than individual people.</p>
+      <p><span class="ann-label">User Action:</span> Reads the introductory explanation and color key. Taps "continue" after all three key items animate in.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">we're about to show you how aware your community actually is.
+
+you'll see hiv and prep prevalence data personalized to your state, city and county. here's what the colors mean.
+
+[color key, animates in sequentially:]
+[green dot] on prep
+[brown dot] living with hiv
+[gray dot] neither
+
+continue</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 10: FRAME 8 - NATIONAL TIMELINE (CONNECTED)             -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>8. National Timeline<span class="variant-badge badge-connected">Connected</span></h3>
+    <span class="frame-id">frame-8-connected</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-8-connected.png" alt="National Timeline - connected variant">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-009</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Displays national HIV diagnosis trends over time (2012 to 2023) using an animated timeline slider. The "connected" variant is shown to users who indicated a relationship to PrEP and uses affirming narrative language.</p>
+      <p><span class="ann-label">User Action:</span> Drags the timeline slider from 2012 to 2023. Reads the contextual sentences that update as the slider moves. Taps "see your community" to continue.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>Customized Copy by PrEP Answer</h4>
+      <div class="callout-box">
+        <p><span class="ann-label">Connected variant:</span> Shows affirming language acknowledging the user's relationship to PrEP and the broader community impact.</p>
+        <p><span class="ann-label">Rationale:</span> Tailored narrative creates a more relevant experience. Users who selected "connected" receive language that validates their awareness while presenting national trend data. No clinical claims are made.</p>
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Calculated</h4>
+      <div class="data-callout">
+        <span class="dc-label">Source</span> AIDSVu 2023, national-level annual new HIV diagnoses and PrEP users
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">How we calculate it</span> Direct display of AIDSVu-published rates. No derivation, modeling, or inference.
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Any AI or algorithmic inference</span> None
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Visualized</h4>
+      <p>250-dot proportional visualization on a US map shape. Dot distribution represents relative rates across a timeline. Not geographic placement. Timeline slider animates from 2012 to 2023 end-state. Dot colors shift proportionally to represent changing rates over time.</p>
+      <p><span class="ann-label">Why this visual treatment:</span> Animation draws attention to the trend direction without requiring the user to interpret charts or graphs. Dot-based display avoids precision claims.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">[US map dot visualization, 250 dots]
+
+key:
+on prep
+not on prep
+proportional representation · not geographic
+
+[hero stat: animated counter showing PrEP users for selected year]
+people on prep
+
+[timeline slider: 2012 to 2023]
+
+slider text updates by year:
+2012: "in 2012, fewer than 9,000 people in the country were on prep. most communities hadn't heard of it yet."
+2014: "{count} people on prep. awareness was growing. more people in the conversation every year."
+2016: "{count} people on prep. more clinics, more conversations, more access."
+2019: "{count} people on prep. the number grew even through a pandemic."
+2022: "{count} people on prep. the number keeps growing, year after year."
+2023: "half a million people are on prep across the country. in new york, coverage varies block by block."
+
+[at 2023 end state, affirming sentence appears:]
+half a million people are on prep across the country. you or someone you know is already in that number.
+
+aidsvu · 2023
+
+see your community</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 11: FRAME 8 - NATIONAL TIMELINE (NEW/SKIPPED)           -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>9. National Timeline<span class="variant-badge badge-new">New / Skipped</span></h3>
+    <span class="frame-id">frame-8-new</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-8-new.png" alt="National Timeline - new/skipped variant">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-010</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Displays the same national HIV diagnosis timeline (2012 to 2023) as the connected variant, but uses introductory narrative language appropriate for users who are new to PrEP or who skipped the PrEP question.</p>
+      <p><span class="ann-label">User Action:</span> Drags the timeline slider from 2012 to 2023. Reads the contextual sentences. Taps "see your community" to continue.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>Customized Copy by PrEP Answer</h4>
+      <div class="callout-box">
+        <p><span class="ann-label">New/Skipped variant:</span> Uses introductory, non-presumptive language. Does not assume the user has prior knowledge of PrEP or HIV data.</p>
+        <p><span class="ann-label">Rationale:</span> Users who selected "new to prep" or who skipped the question receive language that introduces data without assuming familiarity. No clinical claims are made. Same underlying data as the connected variant.</p>
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Calculated</h4>
+      <div class="data-callout">
+        <span class="dc-label">Source</span> AIDSVu 2023, national-level annual new HIV diagnoses and PrEP users
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">How we calculate it</span> Direct display of AIDSVu-published rates. No derivation, modeling, or inference.
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Any AI or algorithmic inference</span> None
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Visualized</h4>
+      <p>250-dot proportional visualization on a US map shape. Dot distribution represents relative rates across a timeline. Not geographic placement. Identical visual treatment to connected variant.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">[US map dot visualization, 250 dots]
+[same slider text as connected variant]
+
+[at 2023 end state, affirming sentence appears:]
+half a million people are on prep across the country. tonight you're part of the conversation.
+
+aidsvu · 2023
+
+see your community</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 12: FRAME 9-1 - BOROUGH: BROOKLYN (CONNECTED)           -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>10. Borough: Brooklyn<span class="variant-badge badge-connected">Connected</span></h3>
+    <span class="frame-id">frame-9-1</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-9-1.png" alt="Borough Brooklyn - connected variant">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-011</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Displays borough-level HIV data for Brooklyn (Kings County) with a state map dot visualization. The connected variant uses narrative language appropriate for users with an existing relationship to PrEP. Borough data contextualizes the national trend shown in the previous frame.</p>
+      <p><span class="ann-label">User Action:</span> Views the state map and reads the borough data card. Swipes to next borough. Taps "see your impact" to continue.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Calculated</h4>
+      <div class="data-callout">
+        <span class="dc-label">Source</span> AIDSVu 2023, county-level HIV diagnosis and PrEP rates
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">How we calculate it</span> Direct display of AIDSVu-published rates. "Prep per diagnosis" = prepRate / newDxRate. No modeling or inference.
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Any AI or algorithmic inference</span> None
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Visualized</h4>
+      <p>250-dot proportional visualization on a state map shape. Dot colors shift per borough to represent relative prep/hiv ratios. Swipeable data cards below with GapRing and StatRow components. Not geographic placement of individuals.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">[state map dot visualization, 250 dots]
+
+key:
+on prep
+living with hiv
+proportional representation · not geographic
+
+brooklyn
+
+24.6 prep per diagnosis
+24.6 people on prep for every new diagnosis
+
+[alternating stats:]
+1,225 living with hiv: 1,225 of every 100,000 people in brooklyn are living with hiv
+542 on prep: 542 of every 100,000 people in brooklyn are on prep
+
+you already know prep exists, but not everyone in your area does.
+
+aidsvu 2023
+
+[swipeable to next borough]
+
+see your impact</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 13: FRAME 9-2 - BOROUGH: THE BRONX (CONNECTED)         -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>11. Borough: The Bronx<span class="variant-badge badge-connected">Connected</span></h3>
+    <span class="frame-id">frame-9-2</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-9-2.png" alt="Borough The Bronx - connected variant">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-012</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Displays borough-level HIV data for The Bronx with a state map dot visualization. The connected variant uses narrative language appropriate for users with an existing relationship to PrEP.</p>
+      <p><span class="ann-label">User Action:</span> Views the borough data card. Swipes to next borough or back.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Calculated</h4>
+      <div class="data-callout">
+        <span class="dc-label">Source</span> AIDSVu 2023, county-level HIV diagnosis and PrEP rates
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">How we calculate it</span> Direct display of AIDSVu-published rates. No derivation, modeling, or inference.
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Any AI or algorithmic inference</span> None
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">the bronx
+
+6.3 prep per diagnosis
+6.3 people on prep for every new diagnosis
+
+[alternating stats:]
+2,438 living with hiv: 2,438 of every 100,000 people in the bronx are living with hiv
+232 on prep: 232 of every 100,000 people in the bronx are on prep
+
+the awareness gap is closer than you think.
+
+aidsvu 2023</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 14: FRAME 9-3 - BOROUGH: MANHATTAN (CONNECTED)          -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>12. Borough: Manhattan<span class="variant-badge badge-connected">Connected</span></h3>
+    <span class="frame-id">frame-9-3</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-9-3.png" alt="Borough Manhattan - connected variant">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-013</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Displays borough-level HIV data for Manhattan (New York County) with a state map dot visualization. The connected variant uses affirming narrative language for users with an existing relationship to PrEP.</p>
+      <p><span class="ann-label">User Action:</span> Views the borough data card. Swipes to next borough or back.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Calculated</h4>
+      <div class="data-callout">
+        <span class="dc-label">Source</span> AIDSVu 2023, county-level HIV diagnosis and PrEP rates
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">How we calculate it</span> Direct display of AIDSVu-published rates. No derivation, modeling, or inference.
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Any AI or algorithmic inference</span> None
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">manhattan
+
+62.8 prep per diagnosis
+62.8 people on prep for every new diagnosis
+
+[alternating stats:]
+1,785 living with hiv: 1,785 of every 100,000 people in manhattan are living with hiv
+1,318 on prep: 1,318 of every 100,000 people in manhattan are on prep
+
+knowing about prep is the first step. telling someone is the next one.
+
+aidsvu 2023</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 15: FRAME 9-4 - BOROUGH: QUEENS (CONNECTED)             -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>13. Borough: Queens<span class="variant-badge badge-connected">Connected</span></h3>
+    <span class="frame-id">frame-9-4</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-9-4.png" alt="Borough Queens - connected variant">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-014</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Displays borough-level HIV data for Queens (Queens County) with a state map dot visualization. The connected variant uses affirming narrative language for users with an existing relationship to PrEP.</p>
+      <p><span class="ann-label">User Action:</span> Views the borough data card. Swipes back to previous boroughs.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Calculated</h4>
+      <div class="data-callout">
+        <span class="dc-label">Source</span> AIDSVu 2023, county-level HIV diagnosis and PrEP rates
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">How we calculate it</span> Direct display of AIDSVu-published rates. No derivation, modeling, or inference.
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Any AI or algorithmic inference</span> None
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">queens
+
+14.7 prep per diagnosis
+14.7 people on prep for every new diagnosis
+
+[alternating stats:]
+871 living with hiv: 871 of every 100,000 people in queens are living with hiv
+323 on prep: 323 of every 100,000 people in queens are on prep
+
+even though you know about prep, your neighbors might not.
+
+aidsvu 2023</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 16: FRAME 9-NEW - BOROUGH: BROOKLYN (NEW/SKIPPED)       -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>14. Borough: Brooklyn<span class="variant-badge badge-new">New / Skipped</span></h3>
+    <span class="frame-id">frame-9-new</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-9-new.png" alt="Borough Brooklyn - new/skipped variant">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-015</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Displays borough-level HIV data for Brooklyn (Kings County) with a state map dot visualization. The new/skipped variant uses introductory, non-presumptive narrative language appropriate for users who are new to PrEP or who skipped the PrEP question.</p>
+      <p><span class="ann-label">User Action:</span> Views the borough data card. Swipes to next borough. Same data as connected variant.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Calculated</h4>
+      <div class="data-callout">
+        <span class="dc-label">Source</span> AIDSVu 2023, county-level HIV diagnosis and PrEP rates
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">How we calculate it</span> Direct display of AIDSVu-published rates. No derivation, modeling, or inference.
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Any AI or algorithmic inference</span> None
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">brooklyn
+[same data as connected variant]
+
+this is your neighborhood's prep picture. now you've seen it.
+
+aidsvu 2023</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 17: FRAME 9-NEW-2 - BOROUGH: THE BRONX (NEW/SKIPPED)   -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>15. Borough: The Bronx<span class="variant-badge badge-new">New / Skipped</span></h3>
+    <span class="frame-id">frame-9-new-2</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-9-new-2.png" alt="Borough The Bronx - new/skipped variant">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-016</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Displays borough-level HIV data for The Bronx with a state map dot visualization. The new/skipped variant uses introductory language appropriate for users who are new to PrEP or who skipped the PrEP question.</p>
+      <p><span class="ann-label">User Action:</span> Views the borough data card. Swipes to next borough or back.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Calculated</h4>
+      <div class="data-callout">
+        <span class="dc-label">Source</span> AIDSVu 2023, county-level HIV diagnosis and PrEP rates
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">How we calculate it</span> Direct display of AIDSVu-published rates. No derivation, modeling, or inference.
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Any AI or algorithmic inference</span> None
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">the bronx
+[same data as connected variant]
+
+prep coverage varies by neighborhood. this is yours.
+
+aidsvu 2023</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 18: FRAME 10 - IMPACT INTRO                             -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>16. Impact Intro</h3>
+    <span class="frame-id">frame-10</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-10.png" alt="Impact Intro screen">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-017</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Transitions the user from the geographic data sequence (national and borough) into the identity card carousel. Sets context for the upcoming county-level data breakdown cards. Introduces the "unaware/aware" color key that will be used in the drag interaction. Prepares the user to explore their community's data across multiple dimensions (overall, race, age, gender).</p>
+      <p><span class="ann-label">User Action:</span> Reads the transition copy and taps "continue" into the identity card carousel.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>Customized Copy by PrEP Answer</h4>
+      <div class="callout-box">
+        <p><span class="ann-label">Connected variant:</span> "this is your county's data, broken down -- what you already know, but many others don't yet. spreading awareness on prep can shift these numbers."</p>
+        <p><span class="ann-label">New/Skipped variant:</span> "this is your county's data, broken down. now you've seen it. spreading awareness of prep shifts these numbers, one conversation at a time."</p>
+        <p><span class="ann-label">Rationale:</span> The transition copy sets the emotional tone for the card carousel. Connected users receive affirming language; new/skipped users receive contextualizing language. No clinical claims in either variant.</p>
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">now let's zoom into your neighborhood.
+
+[connected variant:]
+this is your county's data, broken down -- what you already know, but many others don't yet. spreading awareness on prep can shift these numbers.
+
+[new/skipped variant:]
+this is your county's data, broken down. now you've seen it. spreading awareness of prep shifts these numbers, one conversation at a time.
+
+[color key:]
+[white dot] unaware of prep
+[blue dot] aware of prep
+
+continue</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 19: FRAME 11-CARD-1 - COUNTY OVERALL                   -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>17. Identity Card 1: County Overall</h3>
+    <span class="frame-id">frame-11-card-1</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-11-card-1.png" alt="Identity Card - County Overall">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-018</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> First card in the five-card identity carousel. Displays the overall PrEP coverage and HIV prevalence rates for the user's county. A persistent drag map is rendered above the card showing the county shape with dots. The user's photo appears as a draggable element on the map. Progress indicator shows 1 of 5.</p>
+      <p><span class="ann-label">User Action:</span> Reads the overall county data. Swipes to the next card.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Calculated</h4>
+      <div class="data-callout">
+        <span class="dc-label">Source</span> AIDSVu 2023, county-level overall HIV prevalence and PrEP coverage
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Fields used</span> PrEP coverage per 100,000 (overall), HIV prevalence per 100,000 (overall), county-level
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">How we calculate it</span> Direct display of AIDSVu-published rates. No derivation, modeling, or inference.
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Any AI or algorithmic inference</span> None
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">[county map with draggable photo dot + 250 dots]
+
+key:
+unaware of prep
+aware of prep
+proportional representation · not geographic
+
+swipe through to see the full picture
+
+[zip] · [neighborhood]
+[neighborhood] overall
+this is [neighborhood]. awareness is what closes the distance.
+
+542 of every 100,000 people in [neighborhood] are on prep.
+1,225 of every 100,000 people in [neighborhood] are living with hiv.
+
+aidsvu · 2023 · [neighborhood]
+
+[progress: 1 of 5]</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 20: FRAME 11-CARD-2 - RACE                              -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>18. Identity Card 2: Race</h3>
+    <span class="frame-id">frame-11-card-2</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-11-card-2.png" alt="Identity Card - Race Diagnoses">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-019</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Second card in the five-card identity carousel. Displays new HIV diagnosis rates by race for the user's county (Kings County / Brooklyn), framing the awareness gap as a community-level observation. Uses "of every 100,000" format per language guidelines. Progress indicator shows 2 of 5.</p>
+      <p><span class="ann-label">User Action:</span> Reads the breakdown by race. Swipes to next card.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Calculated</h4>
+      <div class="data-callout">
+        <span class="dc-label">Source</span> AIDSVu 2023, county-level new HIV diagnoses per 100,000 by race
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Fields used</span> New HIV diagnoses per 100,000 by race (Black, Hispanic, White), county-level
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">How we calculate it</span> Direct display of AIDSVu-published rates. No derivation, modeling, or inference.
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Any AI or algorithmic inference</span> None
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">[zip] · [neighborhood]
+who's hearing about prep in your county?
+the people you talk to about prep might not be the people who need to hear it most.
+
+39 of every 100,000 black residents in [neighborhood] are diagnosed.
+36 of every 100,000 hispanic residents in [neighborhood] are diagnosed.
+7 of every 100,000 white residents in [neighborhood] are diagnosed.
+
+aidsvu · 2023 · [neighborhood]
+
+[progress: 2 of 5]</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 21: FRAME 11-CARD-3 - AGE                               -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>19. Identity Card 3: Age</h3>
+    <span class="frame-id">frame-11-card-3</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-11-card-3.png" alt="Identity Card - Age PrEP Coverage">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-020</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Third card in the five-card identity carousel. Displays PrEP coverage rates by age group for the user's county (Kings County). Uses "of every 100,000" format per language guidelines. Progress indicator shows 3 of 5.</p>
+      <p><span class="ann-label">User Action:</span> Reads the breakdown by age group. Swipes to next card.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Calculated</h4>
+      <div class="data-callout">
+        <span class="dc-label">Source</span> AIDSVu 2023, county-level PrEP coverage by age group
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Fields used</span> PrEP coverage per 100,000 by age group (25-34, 13-24, 55+), county-level
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">How we calculate it</span> Direct display of AIDSVu-published rates. No derivation, modeling, or inference.
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Any AI or algorithmic inference</span> None
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">[zip] · [neighborhood]
+who's reaching prep, and who isn't?
+prep isn't evenly distributed across age groups, and you can be a part of closing that gap.
+
+1,384 of every 100,000 ages 25-34 in [neighborhood] are on prep.
+312 of every 100,000 ages 13-24 in [neighborhood] are on prep.
+118 of every 100,000 ages 55+ in [neighborhood] are on prep.
+
+aidsvu · 2023 · [neighborhood]
+
+[progress: 3 of 5]</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 22: FRAME 11-CARD-4 - GENDER                            -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>20. Identity Card 4: Gender</h3>
+    <span class="frame-id">frame-11-card-4</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-11-card-4.png" alt="Identity Card - Gender PrEP Coverage">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-021</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Fourth card in the five-card identity carousel. Displays PrEP coverage rates by gender for the user's county (Kings County). Uses "of every 100,000" format per language guidelines. Progress indicator shows 4 of 5.</p>
+      <p><span class="ann-label">User Action:</span> Reads the breakdown by gender. Swipes to next card.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Calculated</h4>
+      <div class="data-callout">
+        <span class="dc-label">Source</span> AIDSVu 2023, county-level PrEP coverage by gender
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Fields used</span> PrEP coverage per 100,000 by gender (men: 1,021; women: 62), county-level
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">How we calculate it</span> Direct display of AIDSVu-published rates. No derivation, modeling, or inference.
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Any AI or algorithmic inference</span> None
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">[zip] · [neighborhood]
+is prep reaching women the way it's reaching men?
+the gender gap in prep shows us that awareness hasn't reached our communities equally.
+
+1,021 of every 100,000 men in [neighborhood] are on prep.
+62 of every 100,000 women in [neighborhood] are on prep.
+
+aidsvu · 2023 · [neighborhood]
+
+[progress: 4 of 5]</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 23: FRAME 11-CARD-5 - SPREAD AWARENESS                 -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>21. Identity Card 5: Spread Awareness</h3>
+    <span class="frame-id">frame-11-card-5</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-11-card-5.png" alt="Identity Card - Spread Awareness">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-022</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Fifth and final card in the identity carousel. Interactive drag element allows the user to "spread awareness" by dragging their photo across the map, which triggers dot color transitions from white (unaware) to blue (aware) on the persistent map above. Progress indicator shows 5 of 5. The "get your photo" button becomes enabled after the user completes the drag interaction.</p>
+      <p><span class="ann-label">User Action:</span> Drags their photo dot across the county map visualization. White dots near the photo convert to blue. Once enough dots are converted, "get your photo" becomes tappable.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>How the Data Is Calculated</h4>
+      <div class="data-callout">
+        <span class="dc-label">Source</span> No external data source. This is an interactive engagement element.
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">How we calculate it</span> The dot conversions reflect the user's drag progress, not a data calculation. No AIDSVu data is displayed in the drag interaction.
+      </div>
+      <div class="data-callout">
+        <span class="dc-label">Any AI or algorithmic inference</span> None
+      </div>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">[zip] · [neighborhood]
+spread awareness
+you've seen the numbers. now drag your photo across the map to spread awareness.
+
+542 of every 100,000 people in [neighborhood] are on prep.
+
+aidsvu · 2023 · [neighborhood]
+
+[progress: 5 of 5]
+
+get your photo</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 24: FRAME 13 - NAME ENTRY                               -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>22. Name Entry</h3>
+    <span class="frame-id">frame-13</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-13.png" alt="Name Entry screen">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-023</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Collects the user's name and optional Instagram handle to personalize their identity card. The name appears on the generated card and, if the user opts in, on the shared feed display. A compact card preview updates in real-time as the user types.</p>
+      <p><span class="ann-label">User Action:</span> Enters their name and optionally their Instagram handle. Taps "next" to continue or "skip" to proceed without a name.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>Legal &amp; Compliance Language</h4>
+      <p><span class="ann-label">Why this language is here:</span> Name collection is for personalization of the identity card only. The name is not combined with PrEP answer data or zip code in any stored record. Session data is ephemeral.</p>
+      <p><span class="ann-label">Concerns this addresses:</span></p>
+      <ul>
+        <li>Name is not linked to health-related data in storage</li>
+        <li>Personalization only, not identification</li>
+        <li>Session-scoped, not persisted beyond event</li>
+      </ul>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">[card preview showing photo with name updating live]
+
+what should we call you?
+[text input, placeholder: "your name"]
+
+instagram? (optional)
+@ [text input, placeholder: "handle"]
+
+next
+skip</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 25: FRAME 14 - FEED OPT-IN                              -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>23. Feed Opt-In</h3>
+    <span class="frame-id">frame-14</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-14.png" alt="Feed Opt-In screen">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-024</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Asks the user whether they want their identity card to appear on the shared event feed, which is a projected display visible to other event attendees. The disclosure clearly states that the feed is shared with the room and disappears by morning. Both options (opt in, opt out) are visible with equal visual weight.</p>
+      <p><span class="ann-label">User Action:</span> Selects to share their card to the feed or to keep it private. Both options are clearly presented.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>Legal &amp; Compliance Language</h4>
+      <p><span class="ann-label">Exact copy on screen:</span> "tonight's feed is shared with the room. it disappears by morning."</p>
+      <p><span class="ann-label">Why this language is here:</span> The disclosure sets clear expectations about the scope and duration of sharing. "Shared with the room" communicates that the card will be publicly visible at the event. "Disappears by morning" communicates the ephemeral nature of the display. The user can decline without consequence.</p>
+      <p><span class="ann-label">Concerns this addresses:</span></p>
+      <ul>
+        <li>Informed consent for public display of personalized card</li>
+        <li>Clear communication of data ephemerality</li>
+        <li>User autonomy to decline without penalty</li>
+        <li>No persistent public record of participation</li>
+      </ul>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">[card preview showing photo, name, and vibe]
+
+show your card on the feed?
+
+yes, put me on the feed
+no thanks, keep it private
+
+tonight's feed is shared with the room. it disappears by morning.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 26: FRAME 15 - PHONE NUMBER                             -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>24. Phone Number</h3>
+    <span class="frame-id">frame-15</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-15.png" alt="Phone Number screen">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-025</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Collects the user's phone number to send them their personalized identity card via text message. The TCPA compliance language is visible on screen. The user can skip this step without providing a phone number.</p>
+      <p><span class="ann-label">User Action:</span> Enters phone number via on-screen numpad or taps skip. TCPA consent language is visible before submission.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4>Legal &amp; Compliance Language</h4>
+      <p><span class="ann-label">Why this language is here:</span> TCPA (Telephone Consumer Protection Act) requires clear disclosure and consent before sending text messages. The on-screen language includes: message frequency varies, message and data rates may apply, reply STOP to opt out. This language is displayed before the user submits their number.</p>
+      <p><span class="ann-label">Stakeholder guidance that shaped this:</span></p>
+      <ul>
+        <li>Jared (Legal, 4/14 call): Confirmed TCPA compliance language requirements for SMS opt-in at kiosk point of collection.</li>
+      </ul>
+      <p><span class="ann-label">Concerns this addresses:</span></p>
+      <ul>
+        <li>TCPA compliance for SMS messaging</li>
+        <li>Clear opt-out mechanism (reply STOP)</li>
+        <li>Frequency and rate disclosures</li>
+        <li>User can skip without providing phone number</li>
+      </ul>
+      <p><span class="ann-label">Legal basis:</span> TCPA (Telephone Consumer Protection Act). 10DLC registration for SMS sending compliance.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">get your photos
+
+(___) ___-____
+
+we'll text your photos now. want prep resources near you tomorrow morning?
+
+by entering your number, you agree to receive messages from care for the culture. message frequency varies. msg &amp; data rates apply. reply stop to opt out. reply help for help.
+
+[numeric keypad]
+
+send
+skip</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 27: FRAME 16 - DONE / QR                                -->
+<!-- ============================================================ -->
+<div class="slide slide-frame">
+  <div class="frame-header">
+    <h3>25. Done / QR</h3>
+    <span class="frame-id">frame-16</span>
+  </div>
+  <div class="frame-screenshot">
+    <img src="screenshots/frame-16.png" alt="Done / QR screen">
+  </div>
+  <div class="frame-annotations">
+    <div class="part-number-row">
+      <span class="part-number-label">Part Number:</span>
+      <span class="part-number-field">CFTC-2026-026</span>
+    </div>
+
+    <div class="ann-section">
+      <h4>Purpose &amp; Intent</h4>
+      <p><span class="ann-label">Summary:</span> Final screen of the kiosk experience. Displays the user's card preview alongside a QR code for browsing the feed on a personal phone. The session concludes here and returns to the home screen attract loop after a 15-second timeout.</p>
+      <p><span class="ann-label">User Action:</span> Scans the QR code to browse the feed on their phone. Taps "done" to return to home, or waits for auto-return. In group mode, shows "next person's turn!" with a "next" button.</p>
+    </div>
+
+    <div class="ann-section">
+      <h4 class="green">Copy on Frame (Verbatim)</h4>
+      <div class="copy-verbatim">[card preview showing user's photo]
+
+[QR code]
+scan to browse the feed on your phone
+
+[single user:]
+done
+your data will be deleted by tomorrow.
+
+[group mode:]
+next person's turn!
+next</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
