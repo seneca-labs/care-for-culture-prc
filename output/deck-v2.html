@@ -143,19 +143,21 @@
       background: #EFE4CE;
       padding: 0.3in 0.5in;
       display: grid;
-      grid-template-columns: 30% 1fr;
+      grid-template-columns: 28% 1fr;
       grid-template-rows: auto 1fr;
-      gap: 0 0.4in;
+      grid-template-areas:
+        "header header"
+        "screenshot annotations";
+      gap: 0.1in 0.4in;
     }
 
     .frame-header {
-      grid-column: 1 / -1;
+      grid-area: header;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 3px solid #3D2B1F;
       padding-bottom: 4px;
-      margin-bottom: 0.1in;
     }
     .frame-header h3 {
       font-weight: 900;
@@ -184,15 +186,14 @@
     .badge-new { background: #B33A2B; color: #EFE4CE; }
 
     .frame-screenshot {
+      grid-area: screenshot;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
-      grid-row: 2;
     }
     .frame-screenshot img {
       width: 100%;
-      height: 100%;
-      max-height: 6.5in;
+      max-height: 100%;
       object-fit: contain;
       border: none;
       border-radius: 16px;
@@ -200,13 +201,10 @@
     }
 
     .frame-annotations {
+      grid-area: annotations;
       font-size: 8pt;
       line-height: 1.35;
-      overflow: hidden;
-      grid-row: 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+      overflow-y: auto;
     }
 
     /* Part Number */
@@ -1697,16 +1695,22 @@ next</div>
       overflow: hidden;
       page-break-before: auto !important;
     }
-    .slide.active { display: block; }
-    .slide-frame {
+    .slide.active { display: grid; }
+    .slide-frame.active {
+      display: grid !important;
       width: 100vw !important;
       height: 100vh !important;
-      padding: 2vh 3vw !important;
+      padding: 2.5vh 3vw !important;
+      grid-template-columns: 28% 1fr !important;
+      grid-template-rows: auto 1fr !important;
+      grid-template-areas: "header header" "screenshot annotations" !important;
       overflow: hidden;
+    }
+    .frame-screenshot img {
+      max-height: calc(100vh - 100px) !important;
     }
     .frame-annotations {
       overflow-y: auto !important;
-      max-height: calc(100vh - 80px) !important;
       font-size: 9pt !important;
     }
     .slide-cover, .slide-toc {
