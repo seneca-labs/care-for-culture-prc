@@ -1773,10 +1773,16 @@ next</div>
       page-break-before: auto !important;
     }
     .slide.active { display: block; }
-    .slide-cover.active, .slide-toc.active {
+    .slide-cover.active {
       display: flex !important;
       width: 100vw !important;
       height: 100vh !important;
+    }
+    .slide-toc.active {
+      display: block !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      padding: 5vh 5vw !important;
     }
     .slide-frame.active {
       display: grid !important;
