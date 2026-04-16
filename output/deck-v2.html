@@ -146,6 +146,7 @@
       grid-template-columns: 38% 58%;
       grid-template-rows: auto 1fr;
       gap: 0 0.35in;
+      align-content: center;
     }
 
     .frame-header {
@@ -202,6 +203,9 @@
       font-size: 8.5pt;
       line-height: 1.4;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     /* Part Number */
@@ -261,7 +265,7 @@
 
     /* Callout / card boxes */
     .callout-box {
-      background: #FFFFFF;
+      background: transparent;
       border: 1px solid rgba(61,43,31,0.15);
       border-radius: 6px;
       padding: 6px 8px;
@@ -270,21 +274,20 @@
     }
 
     .copy-verbatim {
-      background: #FFFFFF;
+      background: transparent;
       border-left: 3px solid #C5E534;
-      border-radius: 0 6px 6px 0;
+      border-radius: 0;
       padding: 5px 8px;
-      font-size: 7.5pt;
-      line-height: 1.35;
+      font-size: 8.5pt;
+      line-height: 1.4;
       white-space: pre-wrap;
-      max-height: 1.8in;
-      overflow-y: auto;
-      color: #3D2B1F;
+      color: #231F20;
+      font-weight: 500;
     }
 
     /* Data method callout */
     .data-callout {
-      background: #FFFFFF;
+      background: transparent;
       border: 1px solid rgba(61,43,31,0.12);
       border-radius: 6px;
       padding: 5px 8px;
@@ -332,12 +335,7 @@
   <h1>Care for<br>the Culture</h1>
   <div class="subtitle">PRC Submission, April 2026</div>
   <div class="meta-line">Kiosk Experience / Freddy Events, NYC + LA</div>
-  <div class="meta-line">Prepared by Majority</div>
-  <div class="meta-line">Production by Vega Studios</div>
-  <div class="meta-line">Version 2</div>
-  <div class="part-number-block">
-    Part Number: <span class="part-number-field">CFTC-2026-001</span>
-  </div>
+  <div class="meta-line">Prepared by Vega Studios</div>
 </div>
 
 <!-- ============================================================ -->
@@ -403,22 +401,9 @@
 
     <div class="ann-section">
       <h4 class="green">Copy on Frame (Verbatim)</h4>
-      <div class="copy-verbatim">[feed tab: scrolling card carousel of existing participants]
-[map tab: california county dot visualization]
-
-key (map tab):
-on prep
-living with hiv
-proportional representation · not geographic
-
-[county data cards with swipeable panels:]
-los angeles: 27.2 prep per diagnosis. 1,412 of every 100,000 living with hiv. 489 of every 100,000 on prep.
-san diego: 29.4 prep per diagnosis. 876 of every 100,000 living with hiv. 412 of every 100,000 on prep.
-san francisco: 134.1 prep per diagnosis. 2,890 of every 100,000 living with hiv. 2,145 of every 100,000 on prep.
-
-aidsvu 2023
-
+      <div class="copy-verbatim">[name on card, e.g. "jalen"]
 tap to start
+everything you share tonight is deleted within 24 hours.
 
 everything you share tonight is deleted within 24 hours.</div>
     </div>
@@ -508,13 +493,7 @@ terms of use · privacy policy</div>
 
     <div class="ann-section">
       <h4 class="green">Copy on Frame (Verbatim)</h4>
-      <div class="copy-verbatim">your turn
-
-[camera viewfinder, portrait 3:4 aspect ratio]
-
-[shutter button]
-
-[group mode only: "{currentIndex + 1} of {totalMembers}"]</div>
+      <div class="copy-verbatim">your turn</div>
     </div>
   </div>
 </div>
