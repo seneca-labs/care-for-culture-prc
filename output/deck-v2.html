@@ -722,32 +722,12 @@ continue</div>
 
     <div class="ann-section">
       <h4 class="green">Copy on Frame (Verbatim)</h4>
-      <div class="copy-verbatim">[US map dot visualization, 250 dots]
-
-key:
-on prep
-not on prep
-proportional representation · not geographic
-
-[hero stat: animated counter showing PrEP users for selected year]
-people on prep
-
-[timeline slider: 2012 to 2023]
-
-slider text updates by year:
-2012: "in 2012, fewer than 9,000 people in the country were on prep. most communities hadn't heard of it yet."
-2014: "{count} people on prep. awareness was growing. more people in the conversation every year."
-2016: "{count} people on prep. more clinics, more conversations, more access."
-2019: "{count} people on prep. the number grew even through a pandemic."
-2022: "{count} people on prep. the number keeps growing, year after year."
+      <div class="copy-verbatim">on prep / not on prep / proportional representation, not geographic
+[hero stat] people on prep / [timeline slider: 2012-2023]
+2012: "fewer than 9,000 people in the country were on prep."
 2023: "half a million people are on prep across the country. in new york, coverage varies block by block."
-
-[at 2023 end state, affirming sentence appears:]
-half a million people are on prep across the country. you or someone you know is already in that number.
-
-aidsvu · 2023
-
-see your community</div>
+[affirming]: "you or someone you know is already in that number."
+aidsvu 2023 / see your community</div>
     </div>
   </div>
 </div>
@@ -859,29 +839,11 @@ see your community</div>
 
     <div class="ann-section">
       <h4 class="green">Copy on Frame (Verbatim)</h4>
-      <div class="copy-verbatim">[state map dot visualization, 250 dots]
-
-key:
-on prep
-living with hiv
-proportional representation · not geographic
-
+      <div class="copy-verbatim">on prep / living with hiv / proportional representation, not geographic
 brooklyn
-
-24.6 prep per diagnosis
-24.6 people on prep for every new diagnosis
-
-[alternating stats:]
-1,225 living with hiv: 1,225 of every 100,000 people in brooklyn are living with hiv
-542 on prep: 542 of every 100,000 people in brooklyn are on prep
-
-you already know prep exists, but not everyone in your area does.
-
-aidsvu 2023
-
-[swipeable to next borough]
-
-see your impact</div>
+24.6 prep per diagnosis / 1,225 living with hiv per 100k / 542 on prep per 100k
+"you already know prep exists, but not everyone in your area does."
+aidsvu 2023 / see your impact</div>
     </div>
   </div>
 </div>
@@ -929,7 +891,6 @@ see your impact</div>
 6.3 prep per diagnosis
 6.3 people on prep for every new diagnosis
 
-[alternating stats:]
 2,438 living with hiv: 2,438 of every 100,000 people in the bronx are living with hiv
 232 on prep: 232 of every 100,000 people in the bronx are on prep
 
@@ -983,7 +944,6 @@ aidsvu 2023</div>
 62.8 prep per diagnosis
 62.8 people on prep for every new diagnosis
 
-[alternating stats:]
 1,785 living with hiv: 1,785 of every 100,000 people in manhattan are living with hiv
 1,318 on prep: 1,318 of every 100,000 people in manhattan are on prep
 
@@ -1037,7 +997,6 @@ aidsvu 2023</div>
 14.7 prep per diagnosis
 14.7 people on prep for every new diagnosis
 
-[alternating stats:]
 871 living with hiv: 871 of every 100,000 people in queens are living with hiv
 323 on prep: 323 of every 100,000 people in queens are on prep
 
@@ -1842,14 +1801,12 @@ next</div>
     document.querySelectorAll('.slide-frame').forEach(slide => {
       const ann = slide.querySelector('.frame-annotations');
       if (!ann) return;
-      // Reset
-      ann.style.fontSize = '';
-      let size = 10;
+      // Start large, shrink to fit
+      let size = 11;
       ann.style.fontSize = size + 'pt';
-      // Shrink until content fits without overflow
       let tries = 0;
-      while (ann.scrollHeight > ann.clientHeight && size > 5.5 && tries < 20) {
-        size -= 0.5;
+      while (ann.scrollHeight > ann.clientHeight + 2 && size > 5 && tries < 30) {
+        size -= 0.25;
         ann.style.fontSize = size + 'pt';
         tries++;
       }
@@ -1857,8 +1814,14 @@ next</div>
   }
 
   showSlide(0);
-  // Fit after initial render
-  setTimeout(fitAnnotations, 300);
+  // Fit all slides on load
+  setTimeout(() => {
+    // Temporarily show all slides to measure
+    slides.forEach(s => { s.style.display = 'grid'; s.style.position = 'absolute'; s.style.visibility = 'hidden'; });
+    fitAnnotations();
+    slides.forEach(s => { s.style.display = ''; s.style.position = ''; s.style.visibility = ''; });
+    showSlide(0);
+  }, 200);
   // Re-fit on slide change
   const origShowSlide = showSlide;
   showSlide = function(n) {
