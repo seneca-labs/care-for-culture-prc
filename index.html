@@ -689,7 +689,7 @@ continue</div>
 
     <div class="ann-section">
       <h4>Purpose &amp; Intent</h4>
-      <p><span class="ann-label">Summary:</span> Displays national HIV diagnosis trends over time (2012 to 2023) using an animated timeline slider. The "connected" variant is shown to users who indicated a relationship to PrEP and uses affirming narrative language.</p>
+      <p><span class="ann-label">Summary:</span> Displays the growth of PrEP coverage nationally from 2012 to 2023 using an interactive timeline slider. The "connected" variant is shown to users who indicated a relationship to PrEP and uses affirming narrative language.</p>
       <p><span class="ann-label">User Action:</span> Drags the timeline slider from 2012 to 2023. Reads the contextual sentences that update as the slider moves. Taps "see your community" to continue.</p>
     </div>
 
@@ -835,7 +835,7 @@ see your community</div>
 
     <div class="ann-section">
       <h4>Purpose &amp; Intent</h4>
-      <p><span class="ann-label">Summary:</span> Displays borough-level HIV data for Brooklyn (Kings County) with a state map dot visualization. The connected variant uses narrative language appropriate for users with an existing relationship to PrEP. Borough data contextualizes the national trend shown in the previous frame.</p>
+      <p><span class="ann-label">Summary:</span> Displays PrEP coverage and HIV prevalence for Brooklyn (Kings County) on the same state map dot visualization. The connected variant uses narrative language appropriate for users with an existing relationship to PrEP. Borough data contextualizes the national trend shown in the previous frame.</p>
       <p><span class="ann-label">User Action:</span> Views the state map and reads the borough data card. Swipes to next borough. Taps "see your impact" to continue.</p>
     </div>
 
@@ -905,7 +905,7 @@ see your impact</div>
 
     <div class="ann-section">
       <h4>Purpose &amp; Intent</h4>
-      <p><span class="ann-label">Summary:</span> Displays borough-level HIV data for The Bronx with a state map dot visualization. The connected variant uses narrative language appropriate for users with an existing relationship to PrEP.</p>
+      <p><span class="ann-label">Summary:</span> Displays PrEP coverage and HIV prevalence for The Bronx on the same state map dot visualization. The connected variant uses narrative language appropriate for users with an existing relationship to PrEP.</p>
       <p><span class="ann-label">User Action:</span> Views the borough data card. Swipes to next borough or back.</p>
     </div>
 
@@ -959,7 +959,7 @@ aidsvu 2023</div>
 
     <div class="ann-section">
       <h4>Purpose &amp; Intent</h4>
-      <p><span class="ann-label">Summary:</span> Displays borough-level HIV data for Manhattan (New York County) with a state map dot visualization. The connected variant uses affirming narrative language for users with an existing relationship to PrEP.</p>
+      <p><span class="ann-label">Summary:</span> Displays PrEP coverage and HIV prevalence for Manhattan (New York County) with a state map dot visualization. The connected variant uses affirming narrative language for users with an existing relationship to PrEP.</p>
       <p><span class="ann-label">User Action:</span> Views the borough data card. Swipes to next borough or back.</p>
     </div>
 
@@ -1013,7 +1013,7 @@ aidsvu 2023</div>
 
     <div class="ann-section">
       <h4>Purpose &amp; Intent</h4>
-      <p><span class="ann-label">Summary:</span> Displays borough-level HIV data for Queens (Queens County) with a state map dot visualization. The connected variant uses affirming narrative language for users with an existing relationship to PrEP.</p>
+      <p><span class="ann-label">Summary:</span> Displays PrEP coverage and HIV prevalence for Queens (Queens County) with a state map dot visualization. The connected variant uses affirming narrative language for users with an existing relationship to PrEP.</p>
       <p><span class="ann-label">User Action:</span> Views the borough data card. Swipes back to previous boroughs.</p>
     </div>
 
@@ -1067,7 +1067,7 @@ aidsvu 2023</div>
 
     <div class="ann-section">
       <h4>Purpose &amp; Intent</h4>
-      <p><span class="ann-label">Summary:</span> Displays borough-level HIV data for Brooklyn (Kings County) with a state map dot visualization. The new/skipped variant uses introductory, non-presumptive narrative language appropriate for users who are new to PrEP or who skipped the PrEP question.</p>
+      <p><span class="ann-label">Summary:</span> Displays PrEP coverage and HIV prevalence for Brooklyn (Kings County) on the same state map dot visualization. The new/skipped variant uses introductory, non-presumptive narrative language appropriate for users who are new to PrEP or who skipped the PrEP question.</p>
       <p><span class="ann-label">User Action:</span> Views the borough data card. Swipes to next borough. Same data as connected variant.</p>
     </div>
 
@@ -1115,7 +1115,7 @@ aidsvu 2023</div>
 
     <div class="ann-section">
       <h4>Purpose &amp; Intent</h4>
-      <p><span class="ann-label">Summary:</span> Displays borough-level HIV data for The Bronx with a state map dot visualization. The new/skipped variant uses introductory language appropriate for users who are new to PrEP or who skipped the PrEP question.</p>
+      <p><span class="ann-label">Summary:</span> Displays PrEP coverage and HIV prevalence for The Bronx on the same state map dot visualization. The new/skipped variant uses introductory language appropriate for users who are new to PrEP or who skipped the PrEP question.</p>
       <p><span class="ann-label">User Action:</span> Views the borough data card. Swipes to next borough or back.</p>
     </div>
 
@@ -1837,7 +1837,34 @@ next</div>
     if (e.key === 'ArrowLeft') { e.preventDefault(); navSlide(-1); }
   });
 
+  // Auto-fit annotation text so nothing cuts off
+  function fitAnnotations() {
+    document.querySelectorAll('.slide-frame').forEach(slide => {
+      const ann = slide.querySelector('.frame-annotations');
+      if (!ann) return;
+      // Reset
+      ann.style.fontSize = '';
+      let size = 10;
+      ann.style.fontSize = size + 'pt';
+      // Shrink until content fits without overflow
+      let tries = 0;
+      while (ann.scrollHeight > ann.clientHeight && size > 5.5 && tries < 20) {
+        size -= 0.5;
+        ann.style.fontSize = size + 'pt';
+        tries++;
+      }
+    });
+  }
+
   showSlide(0);
+  // Fit after initial render
+  setTimeout(fitAnnotations, 300);
+  // Re-fit on slide change
+  const origShowSlide = showSlide;
+  showSlide = function(n) {
+    origShowSlide(n);
+    setTimeout(fitAnnotations, 50);
+  };
 </script>
 
 </body>
